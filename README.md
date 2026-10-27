@@ -92,7 +92,7 @@ and run through `build_features.py`, so the features are computed exactly as for
 
 ## About the models
 
-- **Data.** HBF challenge data: month-ends Sep 2024 to May 2026, the ones whose 3-month outcome is known. Policies were
+- **Data.** the policy data: month-ends Sep 2024 to May 2026, the ones whose 3-month outcome is known. Policies were
   split 80 / 20; the models were trained on the 80 % and checked on the 20 % they never saw. 12 % of the training
   policies were held back to decide when training stopped.
 - **Any-cancellation model.** XGBoost on the 74 features of the month-end scored; positives are policies that cancelled
