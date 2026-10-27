@@ -1,4 +1,4 @@
-# HBF cancellation models: scoring package
+# Cancellation models: scoring package
 
 Five XGBoost models that estimate, for each policy active at a month-end, the chance it cancels within the next three
 months. Two scripts score a features file with them.
