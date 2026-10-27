@@ -1,0 +1,95 @@
+{
+ "POLICY_OWNER_AGE_BAND": [
+  "18-24",
+  "25-34",
+  "35-44",
+  "45-54",
+  "55-64",
+  "65-74",
+  "75+"
+ ],
+ "SCALE": [
+  "Couple",
+  "Extended Family",
+  "Extended Parent Plus",
+  "Family",
+  "Parent Plus",
+  "Single"
+ ],
+ "STATE_CODE": [
+  "ACT",
+  "NSW",
+  "NT",
+  "QLD",
+  "SA",
+  "TAS",
+  "VIC",
+  "WA"
+ ],
+ "CHANNEL_ACQUISITION": [
+  "Branch",
+  "Broker",
+  "Digital",
+  "Head Office",
+  "Legacy",
+  "MCC",
+  "Other"
+ ],
+ "TENURE_BAND": [
+  "0-3m",
+  "1-2y",
+  "10-15y",
+  "15-20y",
+  "2-3y",
+  "20+y",
+  "3-5y",
+  "3-6m",
+  "5-10y",
+  "6-12m"
+ ],
+ "YOUNGEST_DEPENDANT_AGE_BAND": [
+  "0-16",
+  "17-24",
+  "25-34"
+ ],
+ "PRODUCT_HOLDINGS": [
+  "Ambulance",
+  "Combined",
+  "Extras",
+  "Hospital"
+ ],
+ "HOSPITAL_TIER": [
+  "Basic",
+  "Bronze",
+  "Gold",
+  "OVC",
+  "Silver"
+ ],
+ "EXTRAS_TIER": [
+  "High",
+  "Low",
+  "Mid",
+  "Mid_High",
+  "Mid_Low"
+ ],
+ "PAYMENT_METHOD_DESC": [
+  "Branch",
+  "Direct Debit",
+  "Group",
+  "Unknown"
+ ],
+ "PAYMENT_FREQUENCY_DESC": [
+  "Fortnightly",
+  "Half-Yearly",
+  "Monthly",
+  "Quarterly",
+  "Unknown",
+  "Yearly"
+ ],
+ "RESOLUTION_TIME": [
+  "31 - 60 days",
+  "6 - 30 days",
+  "61+ days",
+  "<= 5 days"
+ ]
+}

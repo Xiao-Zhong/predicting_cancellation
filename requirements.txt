@@ -1,0 +1,5 @@
+# The versions the scripts were tested with (Python 3.14.7). The model files are XGBoost 2.1.4 JSON.
+numpy==2.5.3
+pandas==3.0.6
+pyarrow==25.0.1
+xgboost==2.1.4

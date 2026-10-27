@@ -1,0 +1,75 @@
+feature,kind,meaning
+POLICY_OWNER_AGE_BAND,category,age band of the policy owner
+SCALE,category,"who the policy covers: Single, Couple, Family, Parent Plus, ..."
+STATE_CODE,category,state
+CHANNEL_ACQUISITION,category,channel the policy was sold through
+TENURE_BAND,category,how long the policy has been held
+YOUNGEST_DEPENDANT_AGE_BAND,category,age band of the youngest dependant; blank if none
+PRODUCT_HOLDINGS,category,"Combined, Hospital, Extras or Ambulance"
+HOSPITAL_TIER,category,hospital cover tier; blank without hospital cover
+EXTRAS_TIER,category,extras cover tier; blank without extras cover
+PAYMENT_METHOD_DESC,category,payment method
+PAYMENT_FREQUENCY_DESC,category,payment frequency
+RESOLUTION_TIME,category,time taken to resolve this month's complaint; blank if none
+ACTIVE_ADULT_COUNT,number,adults covered
+ACTIVE_CHILD_COUNT,number,children covered
+INCOME_TIER,number,"income tier, 0 to 3"
+MONTHLY_PREMIUM,number,"premium this month, $"
+tenure_months,number,TENURE_BAND as its midpoint in months (0-3m = 1.5 ... 20+y = 300)
+age_mid,number,POLICY_OWNER_AGE_BAND as its midpoint in years (18-24 = 21 ... 75+ = 80)
+lhc_rate,number,"Lifetime Health Cover loading, % (LHC_LOADING_RATE as a number)"
+excess_amt,number,"hospital excess, $ (NIL = 0; blank without hospital cover)"
+calendar_month,number,"month of the year, 1 to 12"
+arrears,number,"1 if in arrears this month (ARREARS_FLAG = Y), else 0"
+complaints,number,complaints this month
+complaints_unsat,number,complaints this month not resolved to the member's satisfaction
+neg_sent,number,"1 if a call this month had negative sentiment (CALL_NEGATIVE_SENTIMENT = Y), else 0"
+surveyed,number,"1 if the member answered a survey this month, else 0"
+TOTAL_CLAIM_COUNT,number,claims this month
+TOTAL_AMOUNT_CHARGED,number,"amount charged on this month's claims, $"
+TOTAL_BENEFIT_PAID,number,"benefit paid on this month's claims, $"
+TOTAL_OUT_OF_POCKET,number,"member's out-of-pocket on this month's claims, $"
+REVERSAL_FLAG,number,"1 if a claim was reversed this month, else 0"
+NPS_RATING_MEAN,number,"NPS score this month, 0 to 10; blank without a survey"
+OVERALL_EXPERIENCE_RATING_MEAN,number,"overall experience score this month, 0 to 10; blank without a survey"
+premium_per_person,number,MONTHLY_PREMIUM / (adults + children)
+months_observed,number,"months of this policy in the data so far, this one included"
+premium_chg_1m,number,"premium change from last month, $"
+premium_pct_chg_1m,number,"premium change from last month, as a fraction (0.04 = +4 %)"
+premium_pct_chg_3m,number,"premium change from 3 months ago, as a fraction"
+premium_pct_chg_12m,number,"premium change from 12 months ago, as a fraction"
+premium_vs_12m_max,number,"premium against the highest of the previous 11 months, as a fraction"
+arrears_n_3m,number,"months in arrears, last 3 months"
+arrears_n_6m,number,"months in arrears, last 6 months"
+arrears_n_12m,number,"months in arrears, last 12 months"
+complaints_n_6m,number,"complaints, last 6 months"
+complaints_n_12m,number,"complaints, last 12 months"
+complaints_unsat_n_12m,number,"unresolved complaints, last 12 months"
+neg_sent_n_6m,number,"months with a negative-sentiment call, last 6 months"
+neg_sent_n_12m,number,"months with a negative-sentiment call, last 12 months"
+claim_months_3m,number,"months with a claim, last 3 months"
+claim_months_12m,number,"months with a claim, last 12 months"
+claim_cnt_3m,number,"claims, last 3 months"
+claim_cnt_12m,number,"claims, last 12 months"
+charged_12m,number,"amount charged on claims, last 12 months, $"
+benefit_12m,number,"benefit paid, last 12 months, $"
+oop_6m,number,"out-of-pocket, last 6 months, $"
+oop_12m,number,"out-of-pocket, last 12 months, $"
+reversal_12m,number,"months with a reversed claim, last 12 months"
+benefit_to_premium_12m,number,"benefit paid / premium paid, last 12 months"
+nps_last,number,latest NPS score so far; blank if never surveyed
+oer_last,number,latest overall experience score so far; blank if never surveyed
+nps_min_12m,number,"lowest NPS score, last 12 months; blank if no survey"
+survey_n_12m,number,"months with a survey, last 12 months"
+months_since_survey,number,months since the last survey; blank if never
+months_since_complaint,number,months since the last complaint; blank if never
+months_since_claim,number,months since the last claim; blank if never
+hosp_tier_chg_3m,number,"1 if HOSPITAL_TIER differs from 3 months ago or there is no row 3 months ago, else 0"
+extras_tier_chg_3m,number,"1 if EXTRAS_TIER differs from 3 months ago or there is no row 3 months ago, else 0"
+holdings_chg_3m,number,"1 if PRODUCT_HOLDINGS differs from 3 months ago or there is no row 3 months ago, else 0"
+scale_chg_3m,number,"1 if SCALE differs from 3 months ago or there is no row 3 months ago, else 0"
+pay_freq_chg_3m,number,"1 if PAYMENT_FREQUENCY_DESC differs from 3 months ago or there is no row 3 months ago, else 0"
+pay_method_chg_3m,number,"1 if PAYMENT_METHOD_DESC differs from 3 months ago or there is no row 3 months ago, else 0"
+excess_chg_3m,number,"1 if excess_amt differs from 3 months ago or there is no row 3 months ago, else 0"
+adults_chg_3m,number,change in adults covered from 3 months ago
+children_chg_3m,number,change in children covered from 3 months ago
