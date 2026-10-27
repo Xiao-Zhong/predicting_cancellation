@@ -41,16 +41,6 @@ last decimal place. Both scripts take `--month YYYY-MM` to score another month-e
 - **One row per policy-month** with `POLICY_HASH`, `INFORMATION_DATE` (the month-end, `YYYY-MM-DD`) and the 74
   features of `feature_list.csv`. Other columns are ignored. CSV or parquet; for a large file use parquet, from which
   the scripts read only the months they need.
-- **The features must come from `build_features.py`** of the pipeline that trained the models, run on the monthly
-  policy records. The models learnt those exact definitions, so features computed another way give wrong scores.
-- **History.** Many features look back up to 12 months (rolling counts, premium changes, months since the last claim),
-  so `build_features.py` needs each policy's records for at least the 12 months before the month-end scored. The
-  scoring scripts themselves need only the month-end scored, plus the two before it for the type models.
-- **Categories** must be spelled as in `categories.json`. A value not in that list is scored as blank (missing) and
-  the script prints how many rows had one.
-- **Missing earlier months.** For the type models a policy with no row at M-1 or M-2 (a new policy, for example) is
-  scored with those months blank, as in training. If rows are missing because the extract left them out, the scores
-  are wrong without any error, so give the scripts every policy's two earlier month-ends.
 
 ## The output
 
@@ -77,9 +67,7 @@ The type probabilities come from the four scores as `odds_t = score_t / (1 - sco
 
 ## The examples
 
-The six policies in `examples/example_features.csv` are made up. Monthly records were invented for Sep 2024 to Aug 2026
-and run through `build_features.py`, so the features are computed exactly as for real data; the file keeps Jun to Aug
-2026. Their scores show that the scripts run correctly, not anything about real members.
+The six policies in `examples/example_features.csv` are made up. 
 
 | Policy | Invented profile | `p_cancel_3m` | `p_leave` | Most likely type |
 |:---|:---|---:|---:|:---|
@@ -103,15 +91,6 @@ and run through `build_features.py`, so the features are computed exactly as for
   (Non-Recoverable) trees.
 - **Model files.** XGBoost 2.1.4 JSON. They hold trees only, no policy data.
 
-## Two mistakes that give wrong scores without an error
-
-- **Categories coded from new data.** XGBoost 2.1 stores each category as a position number. The model knows
-  `TENURE_BAND = '2-3y'` only as the 5th value of its training list, so a list built from other data, with one value
-  more or less, shifts the codes. The scripts always use `categories.json`.
-- **All the trees.** Training ran 100 rounds past the best one before it stopped. The scores use the trees up to the
-  best round (`best_iteration` in each model file); XGBoost's `predict` uses all of them unless told otherwise. The
-  scripts pass `iteration_range`.
-
 ## Tested
 
 - `predict_cancel_3m.py` reproduces the scores saved when the model was evaluated, for all 109,322 held-out policies at
@@ -120,4 +99,3 @@ and run through `build_features.py`, so the features are computed exactly as for
   at 31 Mar 2026, to within the 6-decimal rounding of the output.
 - The example gives the same scores from CSV as from the parquet it was written from.
 - Versions: Python 3.14.7, xgboost 2.1.4, pandas 3.0.6, numpy 2.5.3, pyarrow 25.0.1, on Linux.
-# predicting_cancellation
